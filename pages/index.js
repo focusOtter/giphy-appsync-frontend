@@ -2,6 +2,7 @@ import {
 	Button,
 	Card,
 	Flex,
+	Heading,
 	Image,
 	TextField,
 	View,
@@ -33,22 +34,46 @@ export default function Home() {
 	}
 	return (
 		<View>
+			<Heading textAlign={'center'} level="1" marginBlock={'relative.large'}>
+				Welcome to Gif Search!
+			</Heading>
 			<form onSubmit={handleSubmit}>
-				<TextField type={'text'} label="Category Name" name="categoryName" />
-				<TextField
-					type={'number'}
-					label="Category Name"
-					defaultValue={3}
-					name="limit"
-				/>
-				<Button type="submit" variation="primary">
-					Submit
-				</Button>
+				<Flex justifyContent={'center'}>
+					<TextField
+						type={'text'}
+						label="Gif Search Term"
+						name="categoryName"
+						placeholder="enter a search word"
+					/>
+					<TextField
+						type={'number'}
+						label="Gif Limit"
+						defaultValue={3}
+						name="limit"
+					/>
+				</Flex>
+
+				<Flex justifyContent={'center'}>
+					<Button
+						size="large"
+						type="submit"
+						variation="primary"
+						marginTop={'relative.medium'}
+					>
+						Submit
+					</Button>
+				</Flex>
 			</form>
-			<Flex justifyContent={'center'} alignItems="center" wrap={'wrap'}>
+
+			<Flex
+				marginTop={'relative.xxl'}
+				justifyContent={'center'}
+				alignItems="center"
+				wrap={'wrap'}
+			>
 				{gifUrls.map((gifUrl, i) => (
 					<Card variation="elevated" key={i}>
-						<Image src={gifUrl} alt={'d'} />
+						<Image src={gifUrl} alt={'giphy'} height="200px" />
 					</Card>
 				))}
 			</Flex>

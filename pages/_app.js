@@ -1,5 +1,6 @@
 import { AmplifyProvider } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
+import './styles/globals.css'
 import { Amplify } from 'aws-amplify'
 Amplify.configure({
 	aws_project_region: 'us-east-1',
