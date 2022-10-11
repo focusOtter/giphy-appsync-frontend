@@ -32,6 +32,7 @@ export default function Home() {
 
 		setGifUrls(data.getGifs)
 	}
+
 	return (
 		<View>
 			<Heading textAlign={'center'} level="1" marginBlock={'relative.large'}>
