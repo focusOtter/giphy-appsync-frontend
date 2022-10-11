@@ -16,7 +16,7 @@ const fetchGifs = `
   }`
 
 export default function Home() {
-	const [gifUrls, setGifUrls] = useState([])
+	const [gifUrls, setGifUrls] = useState(null)
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		const categoryName = e.target.categoryName.value
@@ -40,12 +40,14 @@ export default function Home() {
 			<form onSubmit={handleSubmit}>
 				<Flex justifyContent={'center'}>
 					<TextField
+						backgroundColor={'white'}
 						type={'text'}
 						label="Gif Search Term"
 						name="categoryName"
 						placeholder="enter a search word"
 					/>
 					<TextField
+						backgroundColor={'white'}
 						type={'number'}
 						label="Gif Limit"
 						defaultValue={3}
@@ -71,11 +73,21 @@ export default function Home() {
 				alignItems="center"
 				wrap={'wrap'}
 			>
-				{gifUrls.map((gifUrl, i) => (
-					<Card variation="elevated" key={i}>
-						<Image src={gifUrl} alt={'giphy'} height="200px" />
+				{!gifUrls ? (
+					<Card variation="elevated" key={'ralph hello'}>
+						<Image
+							src={'https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif'}
+							alt={'giphy'}
+							height="200px"
+						/>
 					</Card>
-				))}
+				) : (
+					gifUrls.map((gifUrl, i) => (
+						<Card variation="elevated" key={i}>
+							<Image src={gifUrl} alt={'giphy'} height="200px" />
+						</Card>
+					))
+				)}
 			</Flex>
 		</View>
 	)
